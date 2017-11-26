@@ -4,6 +4,10 @@
 import unittest
 import json
 import sqlite3
+import webbrowser
+from requests_oauthlib import OAuth2Session
+from requests_oauthlib.compliance_fixes import facebook_compliance_fix
+
 
 
 my_app_id = '2497254837080155'
