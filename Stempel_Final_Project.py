@@ -28,7 +28,13 @@ except:
 
 ## Access exactly 100 interactions
 
-## Find the days that each of these interactions took place
+## Find the days that each of these interactions took place (find respective dates and times of posts)
+
+## Find content of post
+
+## Find number of likes, number of shares
+
+## Potentially find comments on posts
 
 ## Write the data to a database
 
