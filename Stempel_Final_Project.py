@@ -9,9 +9,12 @@ from requests_oauthlib import OAuth2Session
 from requests_oauthlib.compliance_fixes import facebook_compliance_fix
 
 
+## Facebook API
 
 my_app_id = '2497254837080155'
 my_app_secret = '53b9b633590e8bb438abb4b74bf5f153'
+
+## Caching Setup
 
 CACHE_FNAME = 'Stempel_Final_Project_Cache.json'
 
@@ -22,3 +25,11 @@ try:
     CACHE_DICTION = json.loads(cache_contents)
 except:
     CACHE_DICTION = {}
+
+## Access exactly 100 interactions
+
+## Find the days that each of these interactions took place
+
+## Write the data to a database
+
+## Create a report
