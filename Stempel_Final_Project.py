@@ -26,6 +26,9 @@ try:
 except:
     CACHE_DICTION = {}
 
+def myFacebookAuthorization():
+	pass
+
 ## Access exactly 100 interactions
 
 ## Find the days that each of these interactions took place (find respective dates and times of posts)
