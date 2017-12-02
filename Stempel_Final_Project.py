@@ -1,5 +1,6 @@
 ## Joseph Stempel
 
+## import statements?
 
 import unittest
 import json
@@ -33,9 +34,9 @@ def myFacebookAuthorization():
 
 ## Find the days that each of these interactions took place (find respective dates and times of posts)
 
-## Find content of post
+## Find content of each post
 
-## Find number of likes, number of shares
+## Find number of likes, number of shares?
 
 ## Potentially find comments on posts
 
