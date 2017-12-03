@@ -30,6 +30,16 @@ except:
 def myFacebookAuthorization():
 	pass
 
+def getUserPosts(my_user):
+	if my_user in CACHE_DICTION:
+		print ('Using Cache...')
+		my_info = CACHE_DICTION[my_user]
+		return my_info
+	else:
+		print ('Fetching data...')
+		my_info = ...
+
+
 ## Access exactly 100 interactions
 
 ## Find the days that each of these interactions took place (find respective dates and times of posts)
