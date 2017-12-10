@@ -104,9 +104,9 @@ def getFacebookData(my_access_token):
 			list_of_weekdays.append(my_day)			## Appending the day of the week of each post to the larger list (list_of_weekdays)
 
 
-		complete_dictionary = {}
-		for x in range(len(list_of_post_ids)):
-			complete_dictionary[list_of_post_ids[x]] = (list_of_weekdays[x], list_of_number_of_likers[x], list_of_number_of_comments[x])
+		complete_dictionary = {}					## Making a complete dictionary to store the three data points (weekday, number of likers, number of comments) with their corresponding post ID
+		for x in range(len(list_of_post_ids)):			## Ensuring that I am iterating over every single post_id
+			complete_dictionary[list_of_post_ids[x]] = (list_of_weekdays[x], list_of_number_of_likers[x], list_of_number_of_comments[x])		## Structuring the key/values of my complete dictionary
 
 	
 		CACHE_DICTION[my_user_id] = complete_dictionary			## Adding my new dictionary (with new fetched data) to cached dictionary
