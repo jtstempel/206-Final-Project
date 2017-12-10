@@ -77,31 +77,31 @@ def getFacebookData(my_access_token):
 			post_day = my_post['created_time'][8:10]	## Slicing for only the day of each post
 
 			my_tuple = (post_year, post_month, post_day)				## Creating tuple of date of post so datetime module can convert/find appropriate weekday
-			my_weekday = datetime.datetime(int(post_year), int(post_month), int(post_day))		## Converting tuple strings (of created_time) into integers so datetime module can function properly
-			day_of_the_week = my_weekday.weekday()								## Proper documentation for the correct assignments of weekdays to their specific integers
+			day_of_the_week = datetime.datetime(int(post_year), int(post_month), int(post_day))		## Converting tuple strings (of created_time) into integers so datetime module can function properly
+			my_assignment = day_of_the_week.weekday()								## Proper documentation for the correct assignments of weekdays to their specific integers
 
-			if day_of_the_week == 6:		## If the returned integer is 6, then that post's day of the week is Sunday
-				my_day = 'Sunday'
+			if my_assignment == 6:		## If the returned integer is 6, then that post's day of the week is Sunday
+				day_of_the_week = 'Sunday'
 
-			elif day_of_the_week == 0:		## If the returned integer is 0, then that post's day of the week is Monday
-				my_day = 'Monday'
+			elif my_assignment == 0:		## If the returned integer is 0, then that post's day of the week is Monday
+				day_of_the_week = 'Monday'
 
-			elif day_of_the_week == 1:		## Process continues for the remaining weekdays...
-				my_day = 'Tuesday'
+			elif my_assignment == 1:		## Process continues for the remaining weekdays...
+				day_of_the_week = 'Tuesday'
 
-			elif day_of_the_week == 2:
-				my_day = 'Wednesday'
+			elif my_assignment == 2:
+				day_of_the_week = 'Wednesday'
 
-			elif day_of_the_week == 3:
-				my_day = 'Thursday'
+			elif my_assignment == 3:
+				day_of_the_week = 'Thursday'
 
-			elif day_of_the_week == 4:
-				my_day = 'Friday'
+			elif my_assignment == 4:
+				day_of_the_week = 'Friday'
 
-			elif day_of_the_week == 5:
-				my_day = 'Saturday'
+			elif my_assignment == 5:
+				day_of_the_week = 'Saturday'
 
-			list_of_weekdays.append(my_day)			## Appending the day of the week of each post to the larger list (list_of_weekdays)
+			list_of_weekdays.append(day_of_the_week)			## Appending the day of the week of each post to the larger list (list_of_weekdays)
 
 
 		complete_dictionary = {}					## Making a complete dictionary to store the three data points (weekday, number of likers, number of comments) with their corresponding post ID
@@ -117,8 +117,7 @@ def getFacebookData(my_access_token):
 		writing_file.close()							## Finished writing, closing cache file
 
 	return my_cached_data
-
-## pprint (getFacebookData(Facebook_Info.my_access_token))
+	
 
 ## SQL Setup
 
