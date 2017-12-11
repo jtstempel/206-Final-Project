@@ -31,6 +31,7 @@ def getFacebookData(my_access_token):
 		print ('Using Cache...')						
 		print ('\n')
 		my_cached_data = CACHE_DICTION[my_user_id]
+		pprint(my_cached_data)				## Output
 		return my_cached_data						## If data related to specific user_id is already in cache, return data
 
 	else:											## If data related to specific user_id is not already in cache, run the following code to fetch data
@@ -112,12 +113,13 @@ def getFacebookData(my_access_token):
 		CACHE_DICTION[my_user_id] = complete_dictionary			## Adding my new dictionary (with new fetched data) to cached dictionary
 		my_cached_data = complete_dictionary						 
 
+		pprint(complete_dictionary)		## Output
+
 		writing_file = open(CACHE_FNAME, 'w')				## Opening cache file in order to write in it
 		writing_file.write(json.dumps(CACHE_DICTION))			## Writing this new cached dictionary to my cache file
 		writing_file.close()							## Finished writing, closing cache file
 
 	return my_cached_data
-	
 
 ## SQL Setup
 
@@ -140,16 +142,18 @@ my_database.close()			## Closing database connection
 
 
 
-## Report Part 1:
-## Finding Activity for Each Weekday
 
-## dictionary_of_weekday_frequencies = {}
-## for my_key in complete_dictionary:
-##		weekday_string = str(complete_dictionary[my_key][0])
-##		if weekday_string in dictionary_of_weekday_frequencies:
+
+## Report Part 1:
+## Finding Activity for Each Weekday 								## Essentially finding frequency
+
+## dictionary_of_weekday_frequencies = {}							## Initializing empty frequency dictionary
+## for my_key in complete_dictionary:									## Iterating over my large dictionary (that has my three data points)
+##		weekday_string = str(complete_dictionary[my_key][0])				## Accessing only the weekday via indexing			
+##		if weekday_string in dictionary_of_weekday_frequencies:			## After iterating through large complete_dictionary, if we have already seen specific weekday, add to it's frequency value by 1
 ##			dictionary_of_weekday_frequencies[weekday_string] += 1
 ##		else:
-##			dictionary_of_weekday_frequencies[weekday_string] = 1
+##			dictionary_of_weekday_frequencies[weekday_string] = 1 			## Don't increment/add to weekday's frequency value otherwise
 ## 
 ## 
 ## print('\n')
