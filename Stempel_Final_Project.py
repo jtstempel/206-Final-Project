@@ -137,3 +137,23 @@ my_database.commit()		## Supposed to commit changes after altering database tabl
 
 cur.close()
 my_database.close()			## Closing database connection
+
+
+
+## Report Part 1:
+## Finding Activity for Each Weekday
+
+## dictionary_of_weekday_frequencies = {}
+## for my_key in complete_dictionary:
+##		weekday_string = str(complete_dictionary[my_key][0])
+##		if weekday_string in dictionary_of_weekday_frequencies:
+##			dictionary_of_weekday_frequencies[weekday_string] += 1
+##		else:
+##			dictionary_of_weekday_frequencies[weekday_string] = 1
+## 
+## 
+## print('\n')
+## print('File Output of Weekday Frequency (When Interactions Occur)')
+## print('\n')
+## print(dictionary_of_weekday_frequencies)	
+## print('\n')
