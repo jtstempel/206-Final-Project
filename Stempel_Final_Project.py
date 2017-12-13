@@ -8,9 +8,9 @@ import sqlite3
 import requests
 import Facebook_Info
 import datetime
-from pprint import pprint
+from pprint import pprint			## Organizes output - makes it "pretty"
 	
-CACHE_FNAME = 'Stempel_Final_Project_Cache.json'	## I am naming my cache file and saving it to variable CACHE_FNAME
+CACHE_FNAME = 'Final_Project_Cache.json'	## I am naming my cache file and saving it to variable CACHE_FNAME
 
 try:
 	cache_file = open(CACHE_FNAME,'r')				## Opening cache file	
@@ -119,7 +119,27 @@ def getFacebookData(my_access_token):
 		writing_file.write(json.dumps(CACHE_DICTION))			## Writing this new cached dictionary to my cache file
 		writing_file.close()							## Finished writing, closing cache file
 
+		## Report Part 1:
+		## Finding Activity for Each Weekday 								## Essentially finding frequency
+
+		dictionary_of_weekday_frequencies = {}							## Initializing empty frequency dictionary
+		for my_key in complete_dictionary:									## Iterating over my large dictionary (that has my three data points)
+			weekday_string = str(complete_dictionary[my_key][0])				## Accessing only the weekday via indexing			
+			if weekday_string in dictionary_of_weekday_frequencies:			## After iterating through large complete_dictionary, if we have already seen specific weekday, add to it's frequency value by 1
+				dictionary_of_weekday_frequencies[weekday_string] += 1
+			else:
+				dictionary_of_weekday_frequencies[weekday_string] = 1 			## Don't increment/add to weekday's frequency value otherwise
+
+		sorted_dictionary = sorted(dictionary_of_weekday_frequencies.items(), key=lambda x: x[1], reverse = True) 	## Sorting my weekday frequency dictionary by its values in descending order (from greatest to least). Converted into a list of tuples.  
+
+		print('\n')
+		print('Social Media Report - File Output of Post Frequency (For Each Weekday)')
+		print('\n')
+		print(sorted_dictionary)	
+		print('\n')	
+
 	return my_cached_data
+
 
 ## SQL Setup
 
@@ -140,24 +160,3 @@ my_database.commit()		## Supposed to commit changes after altering database tabl
 cur.close()
 my_database.close()			## Closing database connection
 
-
-
-
-
-## Report Part 1:
-## Finding Activity for Each Weekday 								## Essentially finding frequency
-
-## dictionary_of_weekday_frequencies = {}							## Initializing empty frequency dictionary
-## for my_key in complete_dictionary:									## Iterating over my large dictionary (that has my three data points)
-##		weekday_string = str(complete_dictionary[my_key][0])				## Accessing only the weekday via indexing			
-##		if weekday_string in dictionary_of_weekday_frequencies:			## After iterating through large complete_dictionary, if we have already seen specific weekday, add to it's frequency value by 1
-##			dictionary_of_weekday_frequencies[weekday_string] += 1
-##		else:
-##			dictionary_of_weekday_frequencies[weekday_string] = 1 			## Don't increment/add to weekday's frequency value otherwise
-## 
-## 
-## print('\n')
-## print('File Output of Weekday Frequency (When Interactions Occur)')
-## print('\n')
-## print(dictionary_of_weekday_frequencies)	
-## print('\n')
